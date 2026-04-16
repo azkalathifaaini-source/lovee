@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I LOVE MULIA 💖</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Pink particles background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, #ff69b4, #ff1493);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: particleFloat 20s linear infinite;
+            box-shadow: 0 0 20px #ff69b4;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main love container */
+        .love-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        /* ROTATING HEART SHAPE TEXT */
+        .rotating-heart {
+            position: relative;
+            display: inline-block;
+            margin: 0 auto;
+            animation: 
+                rotate360 8s linear infinite,
+                heartbeat 2s ease-in-out infinite,
+                glowPulse 3s ease-in-out infinite;
+            transform-origin: center center;
+        }
+
+        .love-line {
+            position: absolute;
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(3rem, 10vw, 10rem);
+            font-weight: 700;
+            color: #ff69b4;
+            text-shadow: 
+                0 0 10px #ff69b4,
+                0 0 20px #ff1493,
+                0 0 30px #ff69b4,
+                0 0 40px #ff1493;
+            white-space: nowrap;
+            transform-origin: center center;
+        }
+
+        /* Position text around heart shape */
+        .love-line:nth-child(1) {
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%) rotate(0deg);
+            animation-delay: 0s;
+        }
+
+        .love-line:nth-child(2) {
+            top: 10%;
+            right: 10%;
+            transform: rotate(45deg);
+            animation-delay: 0.5s;
+            font-size: clamp(2.5rem, 8vw, 8rem);
+        }
+
+        .love-line:nth-child(3) {
+            bottom: 15%;
+            left: 15%;
+            transform: rotate(-45deg);
+            animation-delay: 1s;
+            font-size: clamp(2.5rem, 8vw, 8rem);
+        }
+
+        .love-line:nth-child(4) {
+            top: 50%;
+            left: 5%;
+            transform: translateY(-50%) rotate(-90deg);
+            animation-delay: 1.5s;
+        }
+
+        .love-line:nth-child(5) {
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%) rotate(90deg);
+            animation-delay: 2s;
+        }
+
+        /* MAIN TEXT - Center */
+        .main-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(5rem, 15vw, 15rem);
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff69b4, #ff1493, #ffc0cb, #ff69b4);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 
+                0 0 20px #ff69b4,
+                0 0 40px #ff1493;
+            z-index: 20;
+            animation: textShimmer 2s ease-in-out infinite;
+        }
+
+        @keyframes rotate360 {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.1); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.08); }
+            60% { transform: scale(1); }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { 
+                filter: drop-shadow(0 0 20px #ff69b4);
+                text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff1493, 0 0 30px #ff69b4;
+            }
+            50% { 
+                filter: drop-shadow(0 0 40px #ff69b4);
+                text-shadow: 0 0 20px #ff69b4, 0 0 40px #ff1493, 0 0 60px #ff69b4;
+            }
+        }
+
+        @keyframes textShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Subtitle */
+        .subtitle {
+            color: #ffc0cb;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 300;
+            margin-top: 3rem;
+            text-shadow: 0 0 15px #ff69b4;
+            animation: fadeInUp 2s ease-out 1s both;
+            letter-spacing: 2px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Interactive button */
+        .love-btn {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.5);
+            transition: all 0.3s ease;
+            z-index: 30;
+        }
+
+        .love-btn:hover {
+            transform: translateX(-50%) translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .love-line {
+                font-size: clamp(2rem, 8vw, 6rem) !important;
+            }
+            .main-text {
+                font-size: clamp(4rem, 12vw, 10rem) !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Pink particles -->
+    <div class="particles" id="particles"></div>
+    
+    <div class="love-container">
+        <!-- Rotating heart shape text -->
+        <div class="rotating-heart">
+            <div class="love-line">I</div>
+            <div class="love-line">LOVE</div>
+            <div class="love-line">MULIA</div>
+            <div class="love-line">FOREVER</div>
+            <div class="love-line">💕</div>
+            
+            <!-- Center main text -->
+            <div class="main-text">I LOVE MULIA</div>
+        </div>
+        
+        <div class="subtitle">Spinning with love, forever yours 💖</div>
+    </div>
+
+    <button class="love-btn" onclick="loveExplosion()">💥 Make Hearts Explode!</button>
+
+    <script>
+        // Create pink particles
+        function createParticle() {
+            const container = document.getElementById('particles');
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.width = particle.style.height = (Math.random() * 8 + 4) + 'px';
+            particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            container.appendChild(particle);
+            
+            setTimeout(() => particle.remove(), 25000);
+        }
+
+        // Generate initial particles
+        for(let i = 0; i < 30; i++) {
+            setTimeout(createParticle, i * 500);
+        }
+        setInterval(createParticle, 3000);
+
+        // Love explosion
+        function loveExplosion() {
+            for(let i = 0; i < 80; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = ['💖', '💕', '💗', '💓'][Math.floor(Math.random()*4)];
+                    heart.style.position = 'fixed';
+                    heart.style.left = '50%';
+                    heart.style.top = '50%';
+                    heart.style.fontSize = '2rem';
+                    heart.style.pointerEvents = 'none';
+                    heart.style.zIndex = '1000';
+                    heart.style.transform = 'translate(-50%, -50%)';
+                    document.body.appendChild(heart);
+                    
+                    const angle = (i / 80) * Math.PI * 2;
+                    const distance = 200 + Math.random() * 200;
+                    const x = Math.cos(angle) * distance;
+                    const y = Math.sin(angle) * distance;
+                    
+                    heart.animate([
+                        { transform: `translate(-50%, -50%) scale(0) rotate(0deg)`, opacity: 1 },
+                        { transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(1.5) rotate(720deg)`, opacity: 1 },
+                        { transform: `translate(calc(-50% + ${x*2}px), calc(-50% + ${y*2}px)) scale(0) rotate(1440deg)`, opacity: 0 }
+                    ], {
+                        duration: 3000,
+                        easing: 'ease-out'
+                    }).onfinish = () => heart.remove();
+                }, i * 40);
+            }
+        }
+
+        // Mouse trail hearts
+        document.addEventListener('mousemove', (e) => {
+            if(Math.random() < 0.1) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '💕';
+                heart.style.position = 'fixed';
+                heart.style.left = e.clientX + 'px';
+                heart.style.top = e.clientY + 'px';
+                heart.style.fontSize = '1rem';
+                heart.style.pointerEvents = 'none';
+                heart.style.zIndex = '100';
+                heart.style.animation = 'mouseHeart 1s ease-out forwards';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 1000);
+            }
+        });
+
+        // Add mouseHeart animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes mouseHeart {
+                0% { transform: scale(0) rotate(0deg); opacity: 1; }
+                50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+                100% { transform: scale(0) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
